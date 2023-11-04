@@ -34,10 +34,10 @@
             <td>{{ season.nation }}</td>
             <td>{{ season.division }}</td>
             <td>{{ season.stats.length > 0 ? season.stats[1].starts + season.stats[1].subs : 0 }}</td>
-            <td>{{ season.stats.length > 0 ? season.stats[1].goals : 0 }}</td>
-            <td>{{ season.stats.length > 0 ? season.stats[1].assists : 0 }}</td>
-            <td>{{ season.stats.length > 0 ? season.stats[1].pom : 0 }}</td>
-            <td>{{ season.stats.length > 0 ? season.stats[1].average_rating : 0 }}</td>
+            <td>{{ season.stats.length > 0 ? (season.stats[1].goals === null ? '-' : season.stats[1].goals) : 0 }}</td>
+            <td>{{ season.stats.length > 0 ? (season.stats[1].assists === null ? '-' : season.stats[1].assists) : 0 }}</td>
+            <td>{{ season.stats.length > 0 ? (season.stats[1].pom === null ? '-' : season.stats[1].pom) : 0 }}</td>
+            <td>{{ season.stats.length > 0 ? (season.stats[1].average_rating === null ? '----' : season.stats[1].average_rating) : 0 }}</td>
           </tr>
         </tbody>
       </v-table>

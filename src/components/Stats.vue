@@ -41,12 +41,12 @@
             <td>{{ displayStat(line.yellow_cards) }}</td>
             <td>{{ displayStat(line.red_cards) }}</td>
             <td>{{ displayStat(line.tackles_won) }}</td>
-            <td>{{ displayStat(line.pass_completion) }}</td>
+            <td>{{ displayPercent(line.pass_completion) }}</td>
             <td>{{ displayStat(line.dribbles_made) }}</td>
-            <td>{{ displayStat(line.shots_target) }}</td>
+            <td>{{ displayPercent(line.shots_target) }}</td>
             <td>{{ displayStat(line.fouls) }}</td>
             <td>{{ displayStat(line.fouls_against) }}</td>
-            <td>{{ displayStat(line.average_rating) }}</td>
+            <td>{{ displayRating(line.average_rating) }}</td>
           </tr>
         </tbody>
       </v-table>
@@ -82,6 +82,20 @@ export default {
         return '-'
       } else {
         return stat_value
+      }
+    },
+    displayRating: function(stat_value) {
+      if (stat_value === null) {
+        return '----'
+      } else {
+        return stat_value.toFixed(2)
+      }
+    },
+    displayPercent: function(stat_value) {
+      if (stat_value === null) {
+        return '-'
+      } else {
+        return stat_value + ' %'
       }
     },
     displayApps: function(starts, subs) {
